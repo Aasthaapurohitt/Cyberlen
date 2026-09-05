@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CyberLens</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <span class="logo">CyberLens</span>
+      <button id="logout-btn" class="link-btn hidden">Log out</button>
+    </header>
+
+    <main id="view-loading" class="view">
+      <p class="muted">Checking this page…</p>
+    </main>
+
+    <main id="view-login" class="view hidden">
+      <p class="muted">Log in to see scan results.</p>
+      <form id="login-form">
+        <label class="field-label" for="email">Email</label>
+        <input id="email" type="email" required />
+        <label class="field-label" for="password">Password</label>
+        <input id="password" type="password" required minlength="6" />
+        <button type="submit" class="primary-btn">Log in</button>
+        <p id="login-error" class="error hidden"></p>
+      </form>
+    </main>
+
+    <main id="view-result" class="view hidden">
+      <div class="url-row">
+        <span id="result-url" class="url mono"></span>
+      </div>
+
+      <div class="score-row">
+        <span id="result-score" class="score mono">—</span>
+        <span id="result-verdict" class="verdict mono"></span>
+      </div>
+
+      <div class="reasons">
+        <p class="section-label">Why this score</p>
+        <ul id="reasons-list"></ul>
+      </div>
+    </main>
+
+    <main id="view-empty" class="view hidden">
+      <p class="muted">No scan yet for this tab. Try reloading the page.</p>
+    </main>
+
+    <main id="view-error" class="view hidden">
+      <p class="muted">Couldn't reach CyberLens.</p>
+      <p id="error-detail" class="error"></p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

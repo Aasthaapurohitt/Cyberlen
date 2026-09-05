@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberLens — Real-time, explainable phishing detection</title>
+  <meta name="description" content="CyberLens scans pages as you browse and explains exactly why a page looks risky — powered by a Random Forest model and SHAP." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-row">
+      <a href="#top" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        CyberLens
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#stack">Tech stack</a>
+        <a href="#get-started">Get started</a>
+      </nav>
+
+      <a href="#get-started" class="btn btn-primary nav-cta">View on GitHub</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Browser extension · MERN + Python</p>
+          <h1>Know a phishing page the moment you land on it.</h1>
+          <p class="hero-sub">
+            CyberLens scans the page you're on, scores it for phishing risk,
+            and tells you exactly why — "domain registered 4 days ago",
+            "form submits to a different domain" — instead of a black-box
+            number.
+          </p>
+          <div class="hero-actions">
+            <a href="#get-started" class="btn btn-primary">Get started</a>
+            <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>4</strong><span>services, one pipeline</span></div>
+            <div><strong>SHAP</strong><span>explains every score</span></div>
+            <div><strong>Real-time</strong><span>scans on page load</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="mock-browser">
+            <div class="mock-browser-bar">
+              <span></span><span></span><span></span>
+              <div class="mock-url">secure-login-verify.example</div>
+            </div>
+            <div class="mock-browser-body">
+              <div class="mock-popup">
+                <div class="mock-popup-row">
+                  <span class="mock-score">82</span>
+                  <span class="mock-verdict">High risk</span>
+                </div>
+                <ul class="mock-reasons">
+                  <li>Domain registered 4 days ago</li>
+                  <li>No valid SSL certificate</li>
+                  <li>Form submits to a different domain</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title reveal">What it does</h2>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V5l-8-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Real-time scanning</h3>
+            <p>A lightweight content script scrapes the URL, DOM, forms, and scripts on every page load and reports it instantly.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2-7 4 14 2-7h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Explainable risk scores</h3>
+            <p>A Random Forest model scores each page, and SHAP turns the top contributing features into plain-English reasons.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 9h6M7 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Team dashboard</h3>
+            <p>Every scan lands in a shared history with risk trends over time — built for a small security or IT team to review together.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Lightweight extension</h3>
+            <p>No build step, no bundler — a plain Manifest V3 extension that scopes its own permissions to exactly what it needs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <h2 class="section-title reveal">How it works</h2>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">1</span>
+            <div>
+              <h3>Extension scans the page</h3>
+              <p>The browser extension scrapes URL, DOM, forms, and scripts, then sends them to the backend.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">2</span>
+            <div>
+              <h3>Express orchestrates</h3>
+              <p>The Node/Express API saves a pending record in MongoDB, then forwards the payload to the ML service internally.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">3</span>
+            <div>
+              <h3>The model scores and explains</h3>
+              <p>A FastAPI service extracts features (domain age, SSL validity, redirects, lexical patterns), scores the page, and uses SHAP to explain the result.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">4</span>
+            <div>
+              <h3>Result reaches you instantly</h3>
+              <p>Express relays the score back to the extension popup and stores it for the dashboard — both update in real time.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="stack" id="stack">
+      <div class="container">
+        <h2 class="section-title reveal">Built with</h2>
+        <div class="stack-grid reveal">
+          <span class="chip">JavaScript · Manifest V3</span>
+          <span class="chip">Node.js + Express</span>
+          <span class="chip">MongoDB + Mongoose</span>
+          <span class="chip">Python + FastAPI</span>
+          <span class="chip">scikit-learn</span>
+          <span class="chip">SHAP</span>
+          <span class="chip">React + Tailwind CSS</span>
+          <span class="chip">Recharts</span>
+          <span class="chip">JWT Auth</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="get-started">
+      <div class="container cta-inner reveal">
+        <h2>Set it up locally in four steps</h2>
+        <p>Start the ML service, then Express, then the dashboard, then load the extension unpacked. Full instructions are in the repo README.</p>
+        <a href="https://github.com" class="btn btn-primary">View the repo</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span>CyberLens — capstone project</span>
+      <span id="year"></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

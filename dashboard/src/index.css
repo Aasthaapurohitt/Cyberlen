@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scrollbar-color: #262c38 #141821;
+}
+
+:focus-visible {
+  outline: 2px solid #5b7fff;
+  outline-offset: 2px;
+}
